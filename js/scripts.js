@@ -12,11 +12,18 @@ function formSubmissionEventHandler() {
   let form = document.querySelector("#form");
   form.onsubmit = function (event) {
     event.preventDefault();
+    
     let animalInput = document.getElementById("animalInput").value;
     const button = document.querySelector("button");
-    button.innerText = "Enter";
-    if (animalInput === "notsnake"||animalInput === "ontovore"||animalInput === "dog") {
+    const animalEntries = Array.from(document.querySelectorAll("div.infocard"));
+    const animalTypes = animalEntries.map(element => element.id);
+
+    if (animalTypes.includes(animalInput)) {
+      button.innerText = "Enter";
+      
+      document.getElementById("animalInput").value = "";
       formEventShow(animalInput);
+      
       if (animalInput === "notsnake") {
         formEventHide("ontovore", "dog");
       } else if (animalInput === "ontovore") {
@@ -24,7 +31,8 @@ function formSubmissionEventHandler() {
       } else if (animalInput === "dog") {
         formEventHide("notsnake", "ontovore");
       }
-    } else {
+    } 
+    else {
       button.innerText = "Try again, smartass!";
     }
   }
