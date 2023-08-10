@@ -13,6 +13,8 @@ function formSubmissionEventHandler() {
   form.onsubmit = function (event) {
     event.preventDefault();
     let animalInput = document.getElementById("animalInput").value;
+    const button = document.querySelector("button");
+    button.innerText = "Enter";
     if (animalInput === "notsnake"||animalInput === "ontovore"||animalInput === "dog") {
       formEventShow(animalInput);
       if (animalInput === "notsnake") {
@@ -22,6 +24,8 @@ function formSubmissionEventHandler() {
       } else if (animalInput === "dog") {
         formEventHide("notsnake", "ontovore");
       }
+    } else {
+      button.innerText = "Try again, smartass!";
     }
   }
 }
