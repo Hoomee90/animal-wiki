@@ -10,3 +10,10 @@ body {
 .hidden {
   display: none;
 }
+
+.card-text {
+  font-size: 25px;
+  text-decoration: underline;
+  text-decoration-thickness: 4px;
+  text-underline-offset: 6px;
+}
