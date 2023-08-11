@@ -13,7 +13,7 @@ function formSubmissionEventHandler() {
   form.onsubmit = function (event) {
     event.preventDefault();
     
-    let animalInput = document.getElementById("animalInput").value;
+    let animalInput = document.getElementById("animalInput").value.toLowerCase();
     const button = document.querySelector("button");
     const animalEntries = Array.from(document.querySelectorAll(".infocard"));
     const animalTypes = animalEntries.map(element => element.id);
