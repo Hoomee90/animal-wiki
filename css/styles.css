@@ -1,0 +1,12 @@
+body {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: darkgray;
+}
+
+.title {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
