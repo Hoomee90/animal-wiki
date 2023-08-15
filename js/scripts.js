@@ -10,7 +10,7 @@ function formEventHide(...Allanimal) {
 
 function formSubmissionEventHandler() {
   let form = document.querySelector("#form");
-  form.onsubmit = function (event) {
+  form.addEventListener("submit", function(event) {
     event.preventDefault();
     
     let animalInput = document.getElementById("animalInput").value.toLowerCase();
@@ -37,9 +37,7 @@ function formSubmissionEventHandler() {
     else {
       button.innerText = "Try again, smartass!";
     }
-  }
+  })
 }
 
-window.onload = function() {
-  formSubmissionEventHandler();
-}
+window.addEventListener("load", formSubmissionEventHandler);
