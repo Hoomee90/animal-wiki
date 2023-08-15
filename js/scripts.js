@@ -2,10 +2,14 @@ function formEventShow(animal) {
   document.querySelector("div#" + animal).classList.remove("hidden");
 }
 
-function formEventHide(animalToShow, allAnimals) {
+function formEventDisplay(animalToShow, allAnimals) {
   allAnimals.forEach(animal => {
-    if (animal !== animalToShow) {
-      document.querySelector("div#" + animal).classList.add("hidden");
+    const animalCard = document.querySelector("div#" + animal);
+    if (animal === animalToShow) {
+      animalCard.classList.remove("hidden");
+    }
+    else {
+      animalCard.classList.add("hidden");
     }
   });
 }
@@ -24,14 +28,12 @@ function formSubmissionEventHandler() {
     if (animalTypes.includes(animalInput)) {
       button.innerText = "Enter";
       document.getElementById("animalInput").value = "";
-      
-      formEventShow(animalInput);
-      formEventHide(animalInput, animalTypes);
+      formEventDisplay(animalInput, animalTypes);
     } 
     else {
       button.innerText = "Try again, smartass!";
     }
-  })
+  });
   window.removeEventListener("load", formSubmissionEventHandler);
 }
 
