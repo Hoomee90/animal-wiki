@@ -1,11 +1,13 @@
-// UI logic
-
 function formEventShow(animal) {
-  document.querySelector("div#" + animal).removeAttribute("class");
+  document.querySelector("div#" + animal).classList.remove("hidden");
 }
 
-function formEventHide(...Allanimal) {
-  Allanimal.forEach((animal) => document.querySelector("div#" + animal).classList.add("hidden"));
+function formEventHide(animalToShow, allAnimals) {
+  allAnimals.forEach(animal => {
+    if (animal !== animalToShow) {
+      document.querySelector("div#" + animal).classList.add("hidden");
+    }
+  });
 }
 
 function formSubmissionEventHandler() {
@@ -23,21 +25,13 @@ function formSubmissionEventHandler() {
       document.getElementById("animalInput").value = "";
       
       formEventShow(animalInput);
-      
-      if (animalInput === "notsnake") {
-        formEventHide("ontovore", "dog");
-      } 
-      else if (animalInput === "ontovore") {
-        formEventHide("notsnake", "dog");
-      } 
-      else if (animalInput === "dog") {
-        formEventHide("notsnake", "ontovore");
-      }
+      formEventHide(animalInput, animalTypes);
     } 
     else {
       button.innerText = "Try again, smartass!";
     }
   })
+  window.removeEventListener("load", formSubmissionEventHandler);
 }
 
 window.addEventListener("load", formSubmissionEventHandler);
