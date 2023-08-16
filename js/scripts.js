@@ -1,7 +1,3 @@
-function formEventShow(animal) {
-  document.querySelector("div#" + animal).classList.remove("hidden");
-}
-
 function formEventDisplay(animalToShow, allAnimals) {
   allAnimals.forEach(animal => {
     const animalCard = document.querySelector("div#" + animal);
